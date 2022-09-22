@@ -11,7 +11,7 @@ import { Avatar } from '@mui/material';
 function Sidebar() {
   return (
     <>
-    <div className='flex flex-col px-6 gap-6 overflow-y-auto h-[20rem]'>
+    <div className='flex flex-col px-6 gap-6 overflow-y-auto h-[30rem]'>
       
 
       <div className='flex flex-row items-center gap-4'>
@@ -51,8 +51,35 @@ function Sidebar() {
         <LocalGroceryStoreIcon fontSize='medium'/> 
         <p className='text-lg font-bold'>Marketplace</p>
       </div>
-      
 
+       <div>
+        <button>show more</button>
+       </div>
+       
+       <div>
+        <hr className='border-[1px] w-full border-[]'/>
+       </div>
+        <div className='flex flex-col gap-4'>
+         <div className='flex flex-row items-center gap-4'>
+         <p className='text-lg font-bold'>Friends</p>
+         </div>
+         <div className='flex flex-row  gap-4'>
+          <Avatar className="rounded-full" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+          <p className=' font-bold'>Laila Khan</p>
+         </div>
+         <div className='flex flex-row  gap-4'>
+          <Avatar className="rounded-full" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+          <p className=' font-bold'>Amjad Don</p>
+         </div>
+         <div className='flex flex-row  gap-4'>
+          <Avatar className="rounded-full" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+          <p className=' font-bold'>Faizan Anwer Ali</p>
+         </div>
+         <div className='flex flex-row  gap-4'>
+          <Avatar className="rounded-full" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+          <p className=' font-bold'>Princess Smarty</p>
+         </div>
+        </div>
 
     </div>
 

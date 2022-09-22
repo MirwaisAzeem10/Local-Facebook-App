@@ -3,6 +3,12 @@ import { Avatar } from '@mui/material'
 function Post() {
   return (
      <>
+          <div className='flex flex-row gap-4 bg-[#FFFFFF] drop-shadow-xl p-10 px-10'>
+            <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+            <input className='underline'  type='text' placeholder='what are you thinking about'/>
+            
+          </div>
+      
      <div className='flex flex-col items-center gap-6 overflow-y-auto h-[35rem] pt-10'>
        <div className='bg-[#FFFFFF] drop-shadow-xl p-10 px-20 rounded-md'>  
         <div className='flex  flex-row  gap-4'>
