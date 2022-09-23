@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
+import { useNavigate } from "react-router-dom";
 
 function HeaderTwo() {
 
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+
+  const navigateLogin = () => {
+
+    navigate('/mainpage')
+    alert("login Successfully")
+  }
 
 
   const myfunction = () => {
@@ -54,7 +64,7 @@ function HeaderTwo() {
             />
           </div>
           <div className="flex justify-center items-center">
-            <button disabled={myfunction} type="submit" className="bg-[#1877F2] rounded w-52 p-2 text-[#FFFF]">
+            <button  onClick={navigateLogin} type="submit" className="bg-[#1877F2] rounded w-52 p-2 text-[#FFFF]">
               Login
             </button>
           </div>

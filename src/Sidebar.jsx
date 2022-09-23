@@ -53,7 +53,7 @@ function Sidebar() {
       </div>
 
        <div>
-        <button>show more</button>
+        <button className='bg-[#F0F0F0] p-2 px-8 rounded'>show more</button>
        </div>
        
        <div>

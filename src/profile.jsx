@@ -78,25 +78,7 @@ function profile() {
 
      
     </div>
-    <div className='flex justify-center mt-6 gap-4'> 
-     <div className='flex flex-row gap-2'> 
-     <PhotoLibraryIcon  />
-     <p>Images & Videos</p>
-     </div>
-     <div className='flex flex-row gap-2'>
-     <LabelIcon />
-     <p>Tag</p>
-     </div>
-     <div className='flex flex-row gap-2'>
-      <LocationOnIcon/>
-      <p>Location</p>
-     </div>
-     <div className='flex flex-row gap-2'>
-     <AddReactionIcon/>
-     <p>Emotion</p>
-     </div>
-
-     </div>
+    
     
       </div>
 
