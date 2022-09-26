@@ -138,6 +138,25 @@ function Post() {
         <p>2 people like this</p>
         </div>
        </div>
+
+
+       <div className='bg-[#FFFFFF] drop-shadow-xl p-10 px-20 rounded-md'>
+       <div className='flex  flex-row  gap-4'>
+        <Avatar variant='dot' alt="Remy Sharp" className='' src=''/>
+        <p className='text-lg font-bold'>Faizan</p>
+
+        </div>
+        <div className='flex justify-start'>
+       <p className='py-5'>Check out this video</p>
+        </div>
+
+        <img src='https://placeimg.com/400/225/arch'  alt='nature'/>
+        <div className='flex jusify-start items-center pt-5'>
+        <img className='w-[30px]' src='assets/person/like.png'  alt=''/>
+        <img className='w-[30px]' src='assets/person/thumbs-up.png'   alt=''/>
+        <p>2 people like this</p>
+        </div>
+       </div>
         
      </div>
 

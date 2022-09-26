@@ -5,6 +5,8 @@ import HeaderTwo from "./HeaderTwo";
 import MainPage from "./MainPage";
 import Sidebar from "./Sidebar";
 import Profile from "./profile";
+import ProfileModal from "./ProfieModal";
+import Activity from "./Activity";
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/mainpage" element={<MainPage/>}/>
         <Route path="/sidebar" element={<Sidebar/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profilemodal" element={<ProfileModal/>}/>
+        <Route path="/activity" element={<Activity/>}/>
        
       </Routes>
     </div>

@@ -13,6 +13,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MessageIcon from '@mui/icons-material/Message';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import {useNavigate} from 'react-router-dom';
+import Activity from "./Activity";
 function MainPage() {
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ function MainPage() {
   return (
     <>
       <div className="flex justify-between  flex-row items-center  gap-4 mt-4">
-        <div className="flex flex-row bg-[#F9F9F9] px-4 gap-4 mt-4">
+        <div className="flex flex-row bg-[#F9F9F9] px-4 gap-4 mt-4">``
           <p className="text-[#1877F2] text-[2rem] font-bold">Mybook</p>
           <input className="px-8" type="text" placeholder="Search" />
         </div>
@@ -67,13 +68,18 @@ function MainPage() {
 
       <div className="flex justify-between  flex-row   gap-8 mt-4 px-20">
        <Sidebar />
-       <div>
+       <div className="max-w-3xl w-full">
           
+    {/* Gallery */}
+      <Stories/>
+
+
           <Post/>
        </div>
       
        <div className="">
        {/* <h3>Online Users</h3>  */}
+       {/* <Activity/> */}
        <Secondsidebar />
 
        </div>

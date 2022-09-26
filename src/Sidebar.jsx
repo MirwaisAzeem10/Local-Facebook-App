@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import EmailIcon from '@mui/icons-material/Email';
@@ -8,7 +8,13 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import { Avatar } from '@mui/material';
+
 function Sidebar() {
+
+ const [showMore,setShowMore] = useState();
+
+
+
   return (
     <>
     <div className='flex flex-col px-6 gap-6 overflow-y-auto h-[30rem]'>
@@ -51,9 +57,27 @@ function Sidebar() {
         <LocalGroceryStoreIcon fontSize='medium'/> 
         <p className='text-lg font-bold'>Marketplace</p>
       </div>
+      {showMore &&(
+          <>
+          <div className='flex flex-row gap-4'>
+        <NewspaperIcon fontSize='medium'/>
+        <p className='text-lg font-bold'>News</p>
+      </div>
+      <div className='flex flex-row gap-4'>
+        <WorkOutlineIcon fontSize='medium'/>
+        <p className='text-lg font-bold'>Jobs</p>
+      </div>
+      <div className='flex flex-row gap-4'>
+        <LocalGroceryStoreIcon fontSize='medium'/> 
+        <p className='text-lg font-bold'>Marketplace</p>
+      </div>
+      <button className="bg-[#F0F0F0] p-2 px-8 rounded btn" onClick={() => setShowMore(!showMore)}>See Less</button>
+      </>
+        )}
 
-       <div>
-        <button className='bg-[#F0F0F0] p-2 px-8 rounded'>show more</button>
+      <div>
+        {/* <button className=''>show more</button> */}
+        {!showMore && <button className="bg-[#F0F0F0] p-2 px-8 rounded btn" onClick={() => setShowMore(!showMore)}>See More</button>}
        </div>
        
        <div>
