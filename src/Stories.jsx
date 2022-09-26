@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Stories() {
+ 
+  const [showimage, setShowImage] = useState();
+
+  const showFunction = () => {
+    setShowImage()
+  }
+
   return (
     
 

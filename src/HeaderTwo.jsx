@@ -72,7 +72,7 @@ function HeaderTwo() {
             <p className="text-[#1877F2]">forgotten password?</p>
           </div>
           <div className="my-4">
-            <hr className="border-[1px] border-gray-200 " />
+            <hr className="border-[1px] border-gray-200 " /> 
           </div>
           <div className="flex justify-center items-center">
             <button className="bg-[#42B72A] text-[#FFF] rounded w-52 p-2">
