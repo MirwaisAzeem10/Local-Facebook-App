@@ -25,10 +25,12 @@ function MainPage() {
           
   }
 
+  
+
   return (
     <>
       <div className="flex justify-between  flex-row items-center  gap-4 mt-4">
-        <div className="flex flex-row bg-[#F9F9F9] px-4 gap-4 mt-4">``
+        <div className="flex flex-row bg-[#F9F9F9] px-4 gap-4 mt-4">
           <p className="text-[#1877F2] text-[2rem] font-bold">Mybook</p>
           <input className="px-8" type="text" placeholder="Search" />
         </div>

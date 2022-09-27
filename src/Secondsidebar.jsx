@@ -84,23 +84,23 @@ function Secondsidebar() {
      <Avatar onClick={handleOpen}   className=" before:content-[''] before:right-0 before:bottom-[0px] before:absolute before:w-2.5 before:rounded-full before:h-2.5 before:bg-[green] relative" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
      <p className='text-lg font-bold'>Faizan Anwer</p>
      </div>
-     <div className='flex flex-row items-center gap-2'>
+     <div onClick={handleOpen} className='flex flex-row items-center gap-2'>
      <ProfieModal />
      <Avatar className=" before:content-[''] before:right-0 before:bottom-[0px] before:absolute before:w-2.5 before:rounded-full before:h-2.5 before:bg-[green] relative" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
      <p className='text-lg font-bold'>Amjad Khan</p>
      </div>
-     <div className='flex flex-row items-center gap-2'>
+     <div onClick={handleOpen} className='flex flex-row items-center gap-2'>
      <ProfieModal />
 
      <Avatar className="before:content-[''] before:right-0 before:bottom-[0px] before:absolute before:w-2.5 before:rounded-full before:h-2.5 before:bg-[green] relative" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
      <p className='text-lg font-bold'>Paul Pogba</p>
      </div>
-     <div className='flex flex-row items-center gap-2'>
+     <div onClick={handleOpen} className='flex flex-row items-center gap-2'>
      <ProfieModal />
      <Avatar className="before:content-[''] before:right-0 before:bottom-[0px] before:absolute before:w-2.5 before:rounded-full before:h-2.5 before:bg-[green] relative" variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
      <p className='text-lg font-bold'>Romelo lukaku</p>
      </div>
-     <div className='flex flex-row items-center gap-2'>
+     <div onClick={handleOpen} className='flex flex-row items-center gap-2'>
      <ProfieModal />
      <Avatar className="before:content-[''] before:right-0 before:bottom-[0px] before:absolute before:w-2.5 before:rounded-full before:h-2.5 before:bg-[green] relative" variant='dot' alt="Remy Sharp" src=""/>
      <ProfieModal />

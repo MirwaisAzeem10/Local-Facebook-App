@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
+import {createUserWithEmailAndPassword} from "firebase/auth"
+import {auth} from "./firebase-config"
 
 function HeaderTwo() {
 
   const [email, setEmail] = useState("");
-
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -13,8 +15,6 @@ function HeaderTwo() {
 
   const navigateLogin = () => {
 
-    navigate('/mainpage')
-    alert("login Successfully")
   }
 
 
@@ -24,13 +24,51 @@ function HeaderTwo() {
 
  };
 
- 
+  
  function handleSubmit(event) {
   event.preventDefault();
 
 
 }
 
+
+const myLogin = async () => {
+
+  try {
+  const user = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password,
+  );
+  navigate('/mainpage')
+  alert("login Successfully")
+
+    console.log(user);
+    
+
+  } catch (error) {
+    console.log(error.message);
+  }
+ 
+}
+
+
+const myLogout = async () => {
+try {
+const user = await createUserWithEmailAndPassword();
+  
+} catch (error) {
+  
+}
+
+}
+
+
+
+const myRegister = () => {
+  navigate("/register")
+  alert("done")
+}
   return (
     <>
       <div className="flex justify-center items-center col-span-2 gap-8 mt-24  flex-wrap">
@@ -64,7 +102,7 @@ function HeaderTwo() {
             />
           </div>
           <div className="flex justify-center items-center">
-            <button  onClick={navigateLogin} type="submit" className="bg-[#1877F2] rounded w-52 p-2 text-[#FFFF]">
+            <button  onClick={myLogin} type="submit" className="bg-[#1877F2] rounded w-52 p-2 text-[#FFFF]">
               Login
             </button>
           </div>
@@ -75,7 +113,7 @@ function HeaderTwo() {
             <hr className="border-[1px] border-gray-200 " /> 
           </div>
           <div className="flex justify-center items-center">
-            <button className="bg-[#42B72A] text-[#FFF] rounded w-52 p-2">
+            <button onClick={myRegister} className="bg-[#42B72A] text-[#FFF] rounded w-52 p-2">
               Create New Account
             </button>
           </div>

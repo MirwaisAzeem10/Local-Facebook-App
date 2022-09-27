@@ -7,6 +7,7 @@ import Sidebar from "./Sidebar";
 import Profile from "./profile";
 import ProfileModal from "./ProfieModal";
 import Activity from "./Activity";
+import Register from "./Register";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/profilemodal" element={<ProfileModal/>}/>
         <Route path="/activity" element={<Activity/>}/>
-       
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </div>
   );

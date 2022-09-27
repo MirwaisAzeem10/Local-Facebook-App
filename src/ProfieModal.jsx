@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 
 
 const style = {
+    cursor: 'pointer',
     position: 'absolute',
     top: '50%',
     left: '50%',
