@@ -14,17 +14,40 @@ import MessageIcon from '@mui/icons-material/Message';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import {useNavigate} from 'react-router-dom';
 import Activity from "./Activity";
+import { signOut} from "firebase/auth";
+import { useState } from "react";
+import { async } from "@firebase/util";
+import {auth} from "./firebase-config";
+import {useEffect} from "react";
 function MainPage() {
   const navigate = useNavigate();
 
-  const navigateHome = () => {
+  // const navigateHome = () => {
 
-    navigate("/headertwo") 
-    alert("logout Successful")
+  //   navigate("/headertwo") 
+  //   alert("logout Successful")
+
 
           
-  }
+  // }
 
+  const logout = async () => {
+
+    try {
+      
+      await signOut(
+        auth
+       ) ;
+       navigate("/headertwo")
+       alert("Logout Successfully")
+
+    } catch (error) {
+      
+    }
+      
+  };
+  
+ 
   
 
   return (
@@ -51,7 +74,7 @@ function MainPage() {
           <div className="px-10">
 
           <Button
-          onClick={navigateHome}
+          onClick={logout}
           >Logout</Button>
 
           {/* <button onClick={navigateHome} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log out</button> */}

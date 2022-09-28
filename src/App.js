@@ -8,6 +8,7 @@ import Profile from "./profile";
 import ProfileModal from "./ProfieModal";
 import Activity from "./Activity";
 import Register from "./Register";
+import Signin from "./Signin";
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route path="/profilemodal" element={<ProfileModal/>}/>
         <Route path="/activity" element={<Activity/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/signin" element={<Signin/>}/>
+
       </Routes>
     </div>
   );

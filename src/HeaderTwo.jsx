@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
-import {createUserWithEmailAndPassword} from "firebase/auth"
+import { signInWithEmailAndPassword,} from "firebase/auth"
 import {auth} from "./firebase-config"
 
 function HeaderTwo() {
 
   const [email, setEmail] = useState("");
-  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
 
-  const navigateLogin = () => {
 
-  }
 
 
   const myfunction = () => {
@@ -35,7 +32,7 @@ function HeaderTwo() {
 const myLogin = async () => {
 
   try {
-  const user = await createUserWithEmailAndPassword(
+  const user = await  signInWithEmailAndPassword(
     auth,
     email,
     password,
@@ -45,29 +42,31 @@ const myLogin = async () => {
 
     console.log(user);
     
-
+    
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message); 
+    console.log("Error is occur");
   }
  
 }
 
 
-const myLogout = async () => {
-try {
-const user = await createUserWithEmailAndPassword();
+// const myLogout = async () => {
+// try {
+// const user = await createUserWithEmailAndPassword();
   
-} catch (error) {
+// } catch (error) {
   
-}
+// }
 
-}
+// }
 
 
 
 const myRegister = () => {
   navigate("/register")
   alert("done")
+  
 }
   return (
     <>
