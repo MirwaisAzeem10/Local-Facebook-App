@@ -25,10 +25,11 @@ function Register() {
     );
     navigate("/headertwo")
     alert("Data Successfully Submitted");
+    
 
   
      } catch (error) {
-        
+        console.log(error);
      }
 
    } 

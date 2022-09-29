@@ -44,40 +44,9 @@ function Secondsidebar() {
   
     <div className='flex justify-start'><p className='text-lg font-bold'>Online Users</p></div>
     <div className='flex flex-row items-center gap-2'>
-    
-
+    <ProfieModal />
     <Avatar onClick={handleOpen} variant='dot' alt="Remy Sharp" src="/assets/images/pexelsprofile.jpg"/>
-    <Modal
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="keep-mounted-modal-title"
-        aria-describedby="keep-mounted-modal-description"
-      >
-        <Box sx={style}>
-          <Typography 
-          color="white"
-          paddingX={5}
-         
-          backgroundColor="#1877F2"
-          width="auto"
-           id="keep-mounted-modal-title" variant="h6" component="h2">
-            Salman Nadeem
-          </Typography>
-          {/* <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-           Hey Salman
-          </Typography> */}
-           <p>{input}</p>
-           <TextField 
-            id="filled-basic" label="hey.." variant="filled" 
-            onChange={(e) => setInput(e.target.value)}
-           />
-
-           
-        </Box>
-      </Modal>
-
-     {/* <p className='text-lg font-bold'>Salman Nadeem</p> */}
+     <p className='text-lg font-bold'>Salman Nadeem</p>
      </div>
      <div className='flex flex-row items-center gap-2'>
      <ProfieModal /> 
