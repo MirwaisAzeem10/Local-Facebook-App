@@ -4,19 +4,19 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase-config";
 import { useNavigate } from "react-router-dom";
-import {Storage} from "./firebase";
+// import {Storage} from "./firebase";
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    dob: null,
-    gender: "",
+  // const [userData, setUserData] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  //   dob: null,
+  //   gender: "",
     
-  });
+  // });
 
 
 
