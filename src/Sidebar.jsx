@@ -8,11 +8,25 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import { Avatar } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function Sidebar() {
 
  const [showMore,setShowMore] = useState();
+ const navigate = useNavigate();
 
+
+
+ const proFunction = () => {
+  
+ navigate("/profile")
+ console.log("done");
+
+
+ }
+
+
+ 
 
 
   return (
@@ -22,7 +36,7 @@ function Sidebar() {
 
       <div className='flex flex-row items-center gap-4'>
         
-      <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+      <Avatar onClick={proFunction} variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
         <p className='text-lg font-bold'>Salman Bhai</p>
       </div>
       <div className='flex flex-row items-center gap-4'>

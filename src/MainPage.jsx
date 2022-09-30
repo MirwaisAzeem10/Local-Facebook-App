@@ -38,7 +38,7 @@ function MainPage() {
       await signOut(
         auth
        ) ;
-       navigate("/headertwo")
+       navigate("/")
        alert("Logout Successfully")
 
     } catch (error) {
@@ -62,7 +62,6 @@ function MainPage() {
           <OndemandVideoIcon  fontSize="large"/>
           <AllInboxIcon fontSize="large"/>
           <GroupAddIcon fontSize="large"/>
-         
          </div>
          
           <div className="flex flex-row gap-2">

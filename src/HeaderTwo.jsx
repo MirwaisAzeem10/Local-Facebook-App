@@ -64,7 +64,7 @@ const myLogin = async () => {
 
 
 const myRegister = () => {
-  navigate("/register")
+  navigate("/signin")
   // alert("done")
   
 }
