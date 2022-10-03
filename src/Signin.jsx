@@ -2,28 +2,34 @@ import React from "react";
 import { Button, FormControlLabel, Radio } from "@mui/material";
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase-config";
+import { auth, db } from "./firebase-config";
 import { useNavigate } from "react-router-dom";
-// import {Storage} from "./firebase";
+import { ref, set } from "firebase/database";
+// import {Storage} from "./firebase";+
+
 function Signin() {
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const [userData, setUserData] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  //   dob: null,
-  //   gender: "",
-    
-  // });
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    dob: "",
+    gender: " ",
+  });
 
-
-
+  const postUserData = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setUserData({ ...userData, [name]: value });
+  };
 
   const signupFunction = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+      console.log('userData.email, userData.password', userData.email, userData.password)
+      const user = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
+      await handleSubmit(user)
       navigate("/");
       alert("");
     } catch (error) {
@@ -31,9 +37,23 @@ function Signin() {
     }
   };
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
+  const handleSubmit = async (user) => {
+    const res = await fetch(
+      "https://mybook-d10-default-rtdb.firebaseio.com/DataRecord",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
+    if (res) {
+      alert("data stored");
+    } else {
+      alert("plz fill the data");
+    }
+  };
 
   function getYears() {
     const years = [];
@@ -43,14 +63,12 @@ function Signin() {
       year++;
     }
     years.push(year);
-    return years.reverse()
+    return years.reverse();
   }
-
-  
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="container mx-auto flex flex-col gap-2 bg-[#FFFFFF] shadow-xl p-2 w-[30%]">
           <div className="flex justify-start ">
             <p className="text-[1.5rem] font-bold">Sign Up</p>
@@ -63,42 +81,62 @@ function Signin() {
           </div>
           <div className="flex  flex-row items-center gap-4 pt-5">
             <input
+              name="firstName"
               className="p-2 border-[1px]"
               type="text"
               placeholder="firstname"
+              value={userData.firstName}
+              onChange={postUserData}
             />
             <input
+              name="lastName"
               className="p-2 border-[1px]"
               type="text"
-              placeholder="surname"
+              placeholder="lastname"
+              value={userData.lastName}
+              onChange={postUserData}
             />
           </div>
           <div className="flex justify-start items-start text-start">
             <input
+              name="email"
               className="p-2  w-[100%] border-[1px]"
-              type="text"
+              type="email"
               placeholder="Mobile number or email"
-              onChange={(e) => setEmail(e.target.value)}
+              value={userData.email}
+              onChange={postUserData}
             />
           </div>
           <div className="flex justify-start items-start text-start">
             <input
               className="p-2  w-[100%] border-[1px]"
               type="password"
+              name="password"
               placeholder="New password"
-              onChange={(e) => setPassword(e.target.value)}
+              value={userData.password}
+              onChange={postUserData}
             />
           </div>
           <div className="flex justify-start">
             <p className="text-sm text-[#606770]">Date of birth ?</p>
           </div>
           <div className="flex flex-row gap-8">
-            <select className="p-2 border-[1px] w-[25%]">
-              {Array(31).fill(0).map((_, index) => (
-                <option>{index + 1}</option>
-              ))}
+            <select
+              className="p-2 border-[1px] w-[25%]"
+              onChange={setUserData}
+              value={userData.dob}
+            >
+              {Array(31)
+                .fill(0)
+                .map((_, index) => (
+                  <option>{index + 1}</option>
+                ))}
             </select>
-            <select className="p-2 border-[1px] w-[25%]">
+            <select
+              className="p-2 border-[1px] w-[25%]"
+              onChange={setUserData}
+              value={userData.dob}
+            >
               <option>Jan</option>
               <option>Feb</option>
               <option>Mar</option>
@@ -112,10 +150,15 @@ function Signin() {
               <option>Nov</option>
               <option>Dec</option>
             </select>
-            <select className="p-2 border-[1px] w-[25%]">
-            {getYears().map(year => (
-              <option>{year}</option>
-            ))}
+            <select
+              className="p-2 border-[1px] w-[25%]"
+              onChange={setUserData}
+              value={userData.dob}
+              name="dob"
+            >
+              {getYears().map((year) => (
+                <option>{year}</option>
+              ))}
             </select>
           </div>
           <div className="flex justify-start">
