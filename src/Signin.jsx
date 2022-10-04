@@ -20,6 +20,7 @@ function Signin() {
   });
 
   const postUserData = (event) => {
+    console.log(event.target.name);
     const name = event.target.name;
     const value = event.target.value;
     setUserData({ ...userData, [name]: value });
@@ -39,7 +40,7 @@ function Signin() {
 
   const handleSubmit = async (user) => {
     const res = await fetch(
-      "https://mybook-d10-default-rtdb.firebaseio.com/DataRecord",
+      "https://mybook-d10-default-rtdb.firebaseio.com/userDataRecord.json",
       {
         method: "POST",
         headers: {
@@ -49,6 +50,14 @@ function Signin() {
       }
     );
     if (res) {
+       setUserData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        dob: "",
+        gender: " ",
+       })
       alert("data stored");
     } else {
       alert("plz fill the data");
