@@ -14,6 +14,7 @@ import AddFriend from "./AddFriend";
 import Inbox from "./Inbox";
 import MyModalTwo from "./MyModalTwo";
 import Edit from "./Edit";
+import Forget from "./Forget";
 function App() {
   return (
     <div className="App">
@@ -33,10 +34,7 @@ function App() {
         <Route path="/inbox" element={<Inbox/>}/>
         <Route path="/mymodaltwo" element={<MyModalTwo/>}/>
         <Route path="/edit" element={<Edit/>}/>
-
-
-
-
+        <Route path="/forget" element={<Forget/>}/>
       </Routes>
     </div>
   );
