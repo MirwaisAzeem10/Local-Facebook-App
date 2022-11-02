@@ -12,7 +12,9 @@ function HeaderTwo() {
   const navigate = useNavigate();
 
 
-
+const forgotFunc = () => {
+  navigate('/forget')
+}
 
 
   const myfunction = () => {
@@ -106,7 +108,7 @@ const myRegister = () => {
             </button>
           </div>
           <div className="flex justify-center items-center">
-            <p className="text-[#1877F2]">forgotten password?</p>
+            <button className="text-[#1877F2] bg-none"  onClick={forgotFunc}>forgotten password?</button>
           </div>
           <div className="my-4">
             <hr className="border-[1px] border-gray-200 " /> 
