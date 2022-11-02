@@ -1,4 +1,5 @@
 import React from 'react'
+import  { useState } from 'react';
 import "./profile.css"
 import { Avatar } from '@mui/material'
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
@@ -9,7 +10,28 @@ import AddHomeIcon from '@mui/icons-material/AddHome';
 import Stories from './Stories';
 import ImageIcon from '@mui/icons-material/Image';
 import ProfieModal from './ProfieModal';
-function profile() {
+import InputEmoji from 'react-input-emoji';
+import Secondsidebar from './Secondsidebar';
+// import { Navigate } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
+
+
+function Profile() {
+
+// const navigate = useNavigate();
+
+// const [ myText, setMyText] = useState("")
+// function handleOnEnter (myText) {
+//   console.log('enter', myText)
+// }
+
+// const myDetailFunc = () => {
+//  navigate('/edit');
+//  console.log('done');
+//  alert("yah its working")
+// }
+
+
   return (
     <>
 
@@ -24,14 +46,14 @@ function profile() {
 
 
      </div>
-     <div className='flex flex-col gap-2 py-16'>
+     <div className='flex flex-col gap-2 py-20'>
      <p className='text-lg font-bold '>Emily Garland</p>
      <p>Never give up!</p>
      </div>
 
     </div>    
  
-    <div className='flex justify-between items-center  bg-[#FFFEFF] drop-shadow-xl w-[100%] border-[1px] rounded'>
+    <div className='flex justify-between items-center bg-[#FFFEFF] drop-shadow-xl w-[100%] border-[1px] rounded'>
     <div className='flex justify-start gap-12 py-4 px-6'>
     <p className='text-lg font-bold text-[gray] hover:text-[blue]'>Post</p>
     <p className='text-lg font-bold text-[gray] hover:text-[blue]'>Abouts</p>
@@ -66,15 +88,10 @@ function profile() {
     </div>
 
   <div className='flex justify-center flex-row items-center gap-8 mt-4'>
-
-
-
- 
   <div className='flex flex-col gap-4 px-24 py-12 bg-[#FFFFFF] drop-shadow-xl'>
   <div className='flex justify-start'>
-    <p className='text-lg font-bold'>Details</p>
+    <p className='text-lg font-bold '>Details</p>
   </div>
-   
    <div className='flex flex-row items-center gap-6'>
         <p className='font-bold'>City:</p>
         <p>Karachi</p>
@@ -146,12 +163,17 @@ function profile() {
      <p className='font-bold text-sm'>Tag</p>
      <LocationOnIcon />
      <p className='font-bold text-sm'>Location</p>
-     <AddReactionIcon />
+     {/* <AddReactionIcon /> */}
+     {/* <InputEmoji
+          value={myText}
+          onChange={setMyText}
+          cleanOnEnter
+          onEnter={handleOnEnter}
+          // placeholder="Type a message"
+        /> */}
      <p className='font-bold text-sm'>Emotions</p>
      <button className='bg-[#008000] text-[#FFF] p-2 px-4 rounded'>share</button>
      </div>
-    
-  
   </div>
    
   <div className='flex justify-start py-8 p-10 '>  
@@ -159,7 +181,14 @@ function profile() {
   </div>
 
   </div>      
+
+
+  <div className='bg-[#FFFFFF] drop-shadow-xl'>
+    <Secondsidebar/>
+  </div>
  
+
+  
  
 
  
@@ -229,4 +258,4 @@ function profile() {
   )
 }
 
-export default profile
+export default Profile

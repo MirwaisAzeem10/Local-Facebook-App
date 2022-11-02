@@ -144,10 +144,9 @@ function Post() {
        <div className='flex  flex-row  gap-4'>
         <Avatar variant='dot' alt="Remy Sharp" className='' src=''/>
         <p className='text-lg font-bold'>Faizan</p>
-
         </div>
         <div className='flex justify-start'>
-       <p className='py-5'>Check out this video</p>
+        <p className='py-5'>Check out this video</p>
         </div>
 
         <img src='https://placeimg.com/400/225/arch'  alt='nature'/>

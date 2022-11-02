@@ -23,7 +23,7 @@ function Register() {
    
 
     );
-    navigate("/headertwo")
+    navigate("/")
     alert("Data Successfully Submitted");
     
 

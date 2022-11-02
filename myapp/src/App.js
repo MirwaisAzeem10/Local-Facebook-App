@@ -4,13 +4,16 @@ import "./App.css";
 import HeaderTwo from "./HeaderTwo";
 import MainPage from "./MainPage";
 import Sidebar from "./Sidebar";
-import Profile from "./profile";
+import Profile from "./Profile";
 import ProfileModal from "./ProfieModal";
 import Activity from "./Activity";
 import Register from "./Register";
 import Signin from "./Signin";
-
-
+import MyVideo from "./MyVideo";
+import AddFriend from "./AddFriend";
+import Inbox from "./Inbox";
+import MyModalTwo from "./MyModalTwo";
+import Edit from "./Edit";
 function App() {
   return (
     <div className="App">
@@ -25,10 +28,19 @@ function App() {
         <Route path="/activity" element={<Activity/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/signin" element={<Signin/>}/>
+        <Route path="/myvideo" element={<MyVideo/>}/>
+        <Route path="/addfriend" element={<AddFriend/>}/>
+        <Route path="/inbox" element={<Inbox/>}/>
+        <Route path="/mymodaltwo" element={<MyModalTwo/>}/>
+        <Route path="/edit" element={<Edit/>}/>
+
+
+
 
       </Routes>
     </div>
   );
 }
+
 
 export default App;

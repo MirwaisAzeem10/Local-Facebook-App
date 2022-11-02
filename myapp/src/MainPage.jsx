@@ -21,7 +21,6 @@ import {auth} from "./firebase-config";
 import {useEffect} from "react";
 function MainPage() {
   const navigate = useNavigate();
-
   // const navigateHome = () => {
 
   //   navigate("/headertwo") 
@@ -46,8 +45,29 @@ function MainPage() {
     }
       
   };
+
+
+  const myhomeFunc  = () => {
+    navigate("/mainpage")
+  }
+
+
+  const myvideoFunc = () => {
+
+     navigate("/myvideo")
+  }
   
+  const myinboxFunc = () => {
+    navigate("/inbox")
+  }
+
+  const addfriendFunc = () => {
+
+    navigate("/addfriend")
+  }
  
+
+  
   
 
   return (
@@ -58,10 +78,10 @@ function MainPage() {
           <input className="px-8" type="text" placeholder="Search" />
         </div>
         <div className="flex flex-row gap-24">
-          <HomeIcon fontSize="large"/>
-          <OndemandVideoIcon  fontSize="large"/>
-          <AllInboxIcon fontSize="large"/>
-          <GroupAddIcon fontSize="large"/>
+          <HomeIcon onClick={myhomeFunc} fontSize="large"/>
+          <OndemandVideoIcon onClick={myvideoFunc} fontSize="large"/>
+          <AllInboxIcon onClick={myinboxFunc} fontSize="large"/>
+          <GroupAddIcon onClick={ addfriendFunc} fontSize="large"/>
          </div>
          
           <div className="flex flex-row gap-2">
