@@ -15,6 +15,8 @@ import Inbox from "./Inbox";
 import MyModalTwo from "./MyModalTwo";
 import Edit from "./Edit";
 import Forget from "./Forget";
+import Navbar from "./Navbar";
+import CreateAccount from "./CreateAccount";
 function App() {
   return (
     <div className="App">
@@ -35,6 +37,8 @@ function App() {
         <Route path="/mymodaltwo" element={<MyModalTwo/>}/>
         <Route path="/edit" element={<Edit/>}/>
         <Route path="/forget" element={<Forget/>}/>
+        <Route path="/navbar" element={<Navbar/>}/>
+        <Route path="/create-account" element={<CreateAccount/>}/>        
       </Routes>
     </div>
   );
