@@ -1,19 +1,72 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { db, } from "./firebase-config";
+import { collection, addDoc, getDocs,} from "firebase/firestore";
 import {useState} from 'react'
 import { Button, FormControlLabel, Radio } from "@mui/material";
 
 function CreateAccount() {
+
+
+   const [myFirstName, setMyFirstName] = useState("")
+   const [myLastName, setMyLastName] = useState("")
+   const [myEmail, setMyEmail] = useState("")
+   const [myPassword, setMyPassword] = useState("")
+   const [myDateOfBirth, setDateOfBirth] = useState({
+    month: null,
+    date: null,
+    year: null
+   })
+
    
-    const [userData, setUserData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
+   const [myGender, setMyGender] = useState("")
+    
+   
+    const userCollectionRef = collection(db, 'users');
+   
+    const [userData, setUserData] = useState(
+        // firstname: myFirstName,
+        // lastname: myLastName,
+        // email: myEmail, 
+        // password: "",
+        // dateofbirth: myDateOfBirth,
+        // gender: myGender,
+    ) 
+    //  if (setUserData) {
+    //   alert("data submitted to firestore")
+      
+    //  } else {
+    //   console.log("Error Accured")
+
+    //  }
+
+    const createUser = () => {
+      addDoc( userCollectionRef, {
+        firstname: myFirstName,
+        lastname: myLastName,
+        email: myEmail, 
         password: "",
-        dob: "",
-        gender: " ",
-      });
+        dateofbirth: myDateOfBirth,
+        gender: myGender,
+      }
+  
+       
+      )
 
+    }
+    
+ 
 
+    useEffect(() => {
+      const getUsers = async () => {
+      const data = await getDocs(userCollectionRef);
+      setUserData(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+
+      };
+
+      getUsers();
+
+    }, []);
+    
 
     function getYears() {
         const years = [];
@@ -34,7 +87,7 @@ function CreateAccount() {
           <div className='flex justify-center items-center py-10'>
             <p className='text-[3rem] text-[#1877F2] font-extrabold'>Facebook</p>
           </div>
-        <div className="container mx-auto flex flex-col gap-2 bg-[#FFFFFF] shadow-xl p-2 w-[30%] px-5">
+        <div className="container mx-auto flex flex-col gap-2 bg-[#FFFFFF] drop-shadow-xl p-2 w-[30%] px-5">
           <div className="flex justify-center items-center pt-5">
             <p className="text-[1.5rem] font-bold">Create a new account</p>
           </div>
@@ -50,12 +103,19 @@ function CreateAccount() {
               className="flex p-2 px-7 border-[1px] rounded text-start"
               type="text"
               placeholder="firstname"
+              onChange={(event) => {
+              setMyFirstName(event.target.value);
+            }}
+
             />
             <input
               name="lastName"
               className="flex p-2 px-7 border-[1px] rounded text-start"
               type="text"
               placeholder="lastname"
+              onChange={(event) => {
+              setMyLastName(event.target.value);
+            }}
               
             />
           </div>
@@ -65,6 +125,9 @@ function CreateAccount() {
               className="p-2  w-[100%] border-[1px] rounded"
               type="email"
               placeholder="Mobile number or email"
+              onChange={(event) => {
+              setMyEmail(event.target.value);
+            }}
               
             />
           </div>
@@ -74,17 +137,20 @@ function CreateAccount() {
               type="password"
               name="password"
               placeholder="New password"
+              onChange={(event) => {
+              setMyPassword(event.target.value);
+            }}
             
             />
           </div>
-          <div className="flex justify-start">
+          {/* <div className="flex justify-start">
             <p className="text-sm text-[#606770]">Date of birth ?</p>
           </div>
           <div className="flex flex-row gap-8">
             <select
               className="p-2 border-[1px] w-[25%]"
               onChange={setUserData}
-              value={userData.dob}
+              // value={userData.dateofbirth}
             >
               {Array(31)
                 .fill(0)
@@ -94,8 +160,8 @@ function CreateAccount() {
             </select>
             <select
               className="p-2 border-[1px] w-[25%]"
-              onChange={setUserData}
-              value={userData.dob}
+              onChange={(event) => setDateOfBirth({...myDateOfBirth, month: event.target.value})}
+              value={dateofbirth.month}
             >
               <option>Jan</option>
               <option>Feb</option>
@@ -112,15 +178,15 @@ function CreateAccount() {
             </select>
             <select
               className="p-2 border-[1px] w-[25%]"
-              onChange={setUserData}
-              value={userData.dob}
-              name="dob"
+              onChange={(event) => setDateOfBirth({...myDateOfBirth, year: event.target.value})}
+              value={dateofbirth.year}
+              name="date of birth"
             >
               {getYears().map((year) => (
                 <option>{year}</option>
               ))}
             </select>
-          </div>
+          </div> */}
           <div className="flex justify-start">
             <p className="text-sm text-[#606770]">Gender ?</p>
           </div>
@@ -157,7 +223,8 @@ function CreateAccount() {
             >
               Sign Up
             </Button> */}
-            <button type="button" class="w-[30%] focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Sign Up</button>
+            <button type="button" class="w-[30%] focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            onClick={createUser}>Sign Up</button>
 
           </div>
         </div>
