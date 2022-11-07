@@ -40,7 +40,7 @@ function CreateAccount() {
     //  }
 
     const createUser = () => {
-      addDoc( userCollectionRef, {
+      addDoc( userCollectionRef, { 
         firstname: myFirstName,
         lastname: myLastName,
         email: myEmail, 
@@ -48,9 +48,16 @@ function CreateAccount() {
         dateofbirth: myDateOfBirth,
         gender: myGender,
       }
-  
        
       )
+
+      // if (createUser == "") {
+      // alert("plz fill the data")
+      // } else {
+      // alert("data not submitted")
+        
+      // }
+
 
     }
     
@@ -78,15 +85,15 @@ function CreateAccount() {
         years.push(year);
         return years.reverse();
       }
-
+    
 
   return (
     
 
     <>
-          <div className='flex justify-center items-center py-10'>
+        <div className='flex justify-center items-center py-10'>
             <p className='text-[3rem] text-[#1877F2] font-extrabold'>Facebook</p>
-          </div>
+        </div>
         <div className="container mx-auto flex flex-col gap-2 bg-[#FFFFFF] drop-shadow-xl p-2 w-[30%] px-5">
           <div className="flex justify-center items-center pt-5">
             <p className="text-[1.5rem] font-bold">Create a new account</p>
@@ -94,23 +101,22 @@ function CreateAccount() {
           <div className="flex justify-center items-center">
             <p className='text-[#606770]'>it's quick and easy.</p>
           </div>
-          <div>
+          <div className='py-5'>
             <hr className="w-full" />
           </div>
           <div className="flex justify-center items-center gap-4 pt-5 px-5 ">
             <input
               name="firstName"
-              className="flex p-2 px-7 border-[1px] rounded text-start"
+              className="flex p-2 px-9 border-[1px] rounded text-start"
               type="text"
               placeholder="firstname"
               onChange={(event) => {
               setMyFirstName(event.target.value);
             }}
-
             />
             <input
               name="lastName"
-              className="flex p-2 px-7 border-[1px] rounded text-start"
+              className="flex p-2 px-9 border-[1px] rounded text-start"
               type="text"
               placeholder="lastname"
               onChange={(event) => {
@@ -143,14 +149,15 @@ function CreateAccount() {
             
             />
           </div>
-          {/* <div className="flex justify-start">
+          <div className="flex justify-start">
             <p className="text-sm text-[#606770]">Date of birth ?</p>
           </div>
           <div className="flex flex-row gap-8">
             <select
               className="p-2 border-[1px] w-[25%]"
-              onChange={setUserData}
-              // value={userData.dateofbirth}
+              onChange={(event) => setDateOfBirth({...myDateOfBirth, date: event.target.value})}
+              value={myDateOfBirth.date}
+
             >
               {Array(31)
                 .fill(0)
@@ -161,7 +168,7 @@ function CreateAccount() {
             <select
               className="p-2 border-[1px] w-[25%]"
               onChange={(event) => setDateOfBirth({...myDateOfBirth, month: event.target.value})}
-              value={dateofbirth.month}
+              value={myDateOfBirth.month}
             >
               <option>Jan</option>
               <option>Feb</option>
@@ -179,22 +186,29 @@ function CreateAccount() {
             <select
               className="p-2 border-[1px] w-[25%]"
               onChange={(event) => setDateOfBirth({...myDateOfBirth, year: event.target.value})}
-              value={dateofbirth.year}
+              value={myDateOfBirth.year}
               name="date of birth"
             >
               {getYears().map((year) => (
                 <option>{year}</option>
               ))}
             </select>
-          </div> */}
-          <div className="flex justify-start">
+          </div>
+          <div className="flex justify-start items-center">
             <p className="text-sm text-[#606770]">Gender ?</p>
           </div>
-          <div className="flex flex-row gap-4">
-            {/* <FormControlLabel   labelPlacement="start" value="female" control={<Radio />} label="Female" />
-     <FormControlLabel   labelPlacement="start" value="male"  control={<Radio />} label="Male" />
-     <FormControlLabel   labelPlacement="start" value="other" control={<Radio />} label="Other" /> */}
-            <div className="flex justify-center items-center gap-2 border-[1px] w-[25%] p-2">
+          <div className="flex justify-center items-center gap-16">
+           <FormControlLabel 
+             labelPlacement="start" value="female" control={<Radio />} label="Female"
+             onChange={(event) => setMyGender({...myGender, female: event.target.value})}
+           />
+           <FormControlLabel   labelPlacement="start" value="male"  control={<Radio />} label="Male" 
+             onChange={(event) => setMyGender({...myGender, male: event.target.value})}
+           />
+           <FormControlLabel   labelPlacement="start" value="other" control={<Radio />} label="Other" 
+             onChange={(event) => setMyGender({...myGender, other: event.target.value})}
+           />
+            {/* <div className="flex justify-center items-center gap-2 border-[1px] w-[25%] p-2">
               <label>Female</label>
               <input type="radio" />
             </div>
@@ -205,7 +219,7 @@ function CreateAccount() {
             <div className="flex justify-center border-[1px] gap-2 w-[25%] p-2">
               <label>Other</label>
               <input type="radio" />
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col py-6">
             <p className="text-sm">
@@ -228,18 +242,8 @@ function CreateAccount() {
 
           </div>
         </div>
+       
     </>
-
-    
-
-
-
-
-
-
-
-
-
 
   )
 }
