@@ -51,14 +51,8 @@ function CreateAccount() {
        
       )
 
-      // if (createUser == "") {
-      // alert("plz fill the data")
-      // } else {
-      // alert("data not submitted")
-        
-      // }
-
-
+      alert("data submitted successfully")
+      
     }
     
  
@@ -104,10 +98,10 @@ function CreateAccount() {
           <div className='py-5'>
             <hr className="w-full" />
           </div>
-          <div className="flex justify-center items-center gap-4 pt-5 px-5 ">
+          <div className="flex justify-center items-center gap-4 pt-5">
             <input
               name="firstName"
-              className="flex p-2 px-9 border-[1px] rounded text-start"
+              className="flex p-2 w-[100%] border-[1px] rounded text-start"
               type="text"
               placeholder="firstname"
               onChange={(event) => {
@@ -116,7 +110,7 @@ function CreateAccount() {
             />
             <input
               name="lastName"
-              className="flex p-2 px-9 border-[1px] rounded text-start"
+              className="flex p-2 w-[100%] border-[1px] rounded text-start"
               type="text"
               placeholder="lastname"
               onChange={(event) => {

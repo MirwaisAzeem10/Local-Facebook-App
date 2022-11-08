@@ -63,13 +63,12 @@ const myLogin = async () => {
 
 // }
 
-
-
 const myRegister = () => {
-  navigate("/register")
+  navigate("/signin")
   // alert("done")
-  
 }
+
+
   return (
     <>
       <div className="flex justify-center items-center col-span-2 gap-8 mt-24 flex-wrap "> 
