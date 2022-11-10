@@ -20,6 +20,7 @@ function Signin() {
   const signupCollectionRef = collection(db, 'signup');
   const [userData, setUserData] = useState();
 
+
   const signUp = () => {
     addDoc (signupCollectionRef, {
       firstname: firstName,
@@ -28,12 +29,24 @@ function Signin() {
       password: "",
       dateofbirth: myDateOfBirth,
       gender: myGender,
+
     });
+   
+    
+   if(addDoc) { 
+    navigate('/')
+    alert("data successfully stored");
+   } else {
+    alert("data not submitted")
+    
+   }
+
+
   }
 
 
 
-  // const postUserData = (event) => {
+   // const postUserData = (event) => {
   //   console.log(event.target.name);
   //   const name = event.target.name;
   //   const value = event.target.value;
@@ -204,32 +217,40 @@ function Signin() {
             <p className="text-sm text-[#606770]">Gender ?</p>
           </div>
 
-
-          <div className="flex flex-row gap-8">
-            <FormControlLabel   labelPlacement="start" value="female" control={<Radio />} label="Female" 
+          <div className="flex justify-start items-center gap-8">
+            {/* <FormControlLabel   labelPlacement="start" value="female" control={<Radio />} label="Female" 
                onChange={(event) => setMyGender({...myGender, female: event.target.value})}
-               className="border rounded px-2"
+               className=" w-[26%]"
             />
             <FormControlLabel   labelPlacement="start" value="male"  control={<Radio />} label="Male" 
                onChange={(event) => setMyGender({...myGender, male: event.target.value})}
-               className="border rounded px-2"
+               className=" w-[26%]"
             />
             <FormControlLabel   labelPlacement="start" value="other" control={<Radio />} label="Other" 
                onChange={(event) => setMyGender({...myGender, other: event.target.value})}
-               className="border rounded px-2"
-            />
-            {/* <div className="flex justify-center items-center gap-2 border-[1px] w-[25%] p-2 rounded">
+               className="w-[26%]"
+            /> */}
+            <div className="flex justify-center items-center gap-2 border-[1px] w-[25%] p-2 rounded">
               <label>Female</label>
-              <input type="radio" />
+              <input type="radio"
+              onChange={(event) => setMyGender({...myGender, female: event.target.value})}
+
+              />
             </div>
             <div className="flex justify-center border-[1px] gap-2  w-[25%] p-2 rounded">
               <label>Male</label>
-              <input type="radio" />
+              <input type="radio" 
+              onChange={(event) => setMyGender({...myGender, male: event.target.value})}
+
+              />
             </div>
             <div className="flex justify-center border-[1px] gap-2 w-[25%] p-2 rounded">
               <label>Other</label>
-              <input type="radio" />
-            </div> */}
+              <input type="radio" 
+              onChange={(event) => setMyGender({...myGender, other: event.target.value})}
+
+              />
+            </div>
           </div>
           <div className="flex flex-col py-6">
             <p className="text-sm">
