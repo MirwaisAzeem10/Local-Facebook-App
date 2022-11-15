@@ -19,13 +19,30 @@ import { useState } from "react";
 import { async } from "@firebase/util";
 import {auth} from "./firebase-config";
 import {useEffect} from "react";
+import AddModal from "./AddModal";
+import Avatar from '@mui/material/Avatar';
+import Modal from '@mui/material/Modal';
+
 function MainPage() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);   
+  const [color, setColor] = useState("")
+  const [myButton, setMyButton] = useState("add a friend")
+
+ 
+  const openModal = () => {
+    navigate("/add-modal")
+  }
+
+
+
   const navigate = useNavigate();
   // const navigateHome = () => {
 
   //   navigate("/headertwo") 
   //   alert("logout Successful")
-
+ 
 
           
   // }
@@ -78,11 +95,97 @@ function MainPage() {
           <input className="px-8" type="text" placeholder="Search" />
         </div>
         <div className="flex flex-row gap-24">
-          <HomeIcon onClick={myhomeFunc} fontSize="large"/>
-          <OndemandVideoIcon onClick={myvideoFunc} fontSize="large"/>
-          <AllInboxIcon onClick={myinboxFunc} fontSize="large"/>
-          <GroupAddIcon onClick={ addfriendFunc} fontSize="large"/>
-         </div>
+        <div>
+        <HomeIcon onClick={myhomeFunc} fontSize="large"/>
+        </div>
+        <div>
+        <OndemandVideoIcon onClick={myvideoFunc} fontSize="large"/>
+        </div>
+        <div>
+        <AllInboxIcon onClick={myinboxFunc} fontSize="large"/>
+        </div>
+        <div>
+        <GroupAddIcon fontSize="large" onClick={openModal}
+
+        />
+<Modal>
+    <div className='container mx-auto flex flex-col items-center gap-2 py-10 bg-[#FFFFFF] w-[25%]'>
+    <div className='flex flex-row items-center gap-8'>
+    <div className='flex flex-row gap-4'>
+    <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/> 
+    <p>Salman bhai</p> 
+    </div>
+    
+
+    <div>
+        <button className='bg-[#1877F2] text-[#FFFF] p-2 rounded '>Add Friend</button>
+    </div>
+     </div>
+
+     <div className='flex flex-row items-center gap-8'>
+    <div className='flex flex-row gap-4'>
+    <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+    <p>Salman bhai</p> 
+    </div>
+    
+
+     <div>
+        <button className='bg-[#1877F2] text-[#FFFF] p-2 rounded'>Add Friend</button>
+     </div>
+     </div>
+
+
+
+     <div className='flex flex-row items-center gap-8'>
+    <div className='flex flex-row gap-4'>
+    <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+    <p>Salman bhai</p> 
+    </div>
+    
+
+     <div>
+        <button className='bg-[#1877F2] text-[#FFFF] p-2 rounded'>Add Friend</button>
+        </div>
+     </div>
+
+
+     <div className='flex flex-row items-center gap-8'>
+    <div className='flex flex-row gap-4'>
+    <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+    <p>Salman bhai</p> 
+    </div>
+    
+
+     <div>
+        <button className='bg-[#1877F2] text-[#FFFF] p-2 rounded'>Add Friend</button>
+        </div>
+     </div>
+
+     <div className='flex flex-row items-center gap-8'>
+    <div className='flex flex-row gap-4'>
+    <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+    <p>Salman bhai</p> 
+    </div>
+     <div>
+        <button className='bg-[#1877F2] text-[#FFFF] p-2 rounded'>Add Friend</button>
+        </div>
+     </div>
+
+     <div className='flex flex-row items-center gap-8'>
+    <div className='flex flex-row gap-4'>
+    <Avatar variant='dot' alt="Remy Sharp" src="/assets/person/pexelsprofile.jpg"/>
+    <p>Salman bhai</p> 
+    </div>
+    
+
+     <div>
+        <button className='bg-[#1877F2] text-[#FFFF] p-2 rounded'>Add Friend</button>
+        </div>
+     </div>
+ </div>
+</Modal>
+        </div>
+        </div>
          
           <div className="flex flex-row gap-2">
           <NotificationsIcon />

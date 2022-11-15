@@ -191,7 +191,7 @@ function CreateAccount() {
           <div className="flex justify-start items-center">
             <p className="text-sm text-[#606770]">Gender ?</p>
           </div>
-          <div className="flex justify-center items-center gap-16">
+          <div className="flex justify-start items-center gap-10">
            <FormControlLabel 
              labelPlacement="start" value="female" control={<Radio />} label="Female"
              onChange={(event) => setMyGender({...myGender, female: event.target.value})}

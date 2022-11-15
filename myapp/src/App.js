@@ -18,6 +18,7 @@ import Forget from "./Forget";
 import Navbar from "./Navbar";
 import CreateAccount from "./CreateAccount";
 import ResetPassword from "./ResetPassword";
+import AddModal from "./AddModal";
 function App() {
   return (
     <div className="App">
@@ -40,7 +41,9 @@ function App() {
         <Route path="/forget" element={<Forget/>}/>
         <Route path="/navbar" element={<Navbar/>}/>
         <Route path="/create-account" element={<CreateAccount/>}/>
-        <Route path="/resetpassword" element={<ResetPassword/>}/>        
+        <Route path="/resetpassword" element={<ResetPassword/>}/> 
+        <Route path="/add-modal" element={<AddModal/>}/>        
+      
         
 
       </Routes>

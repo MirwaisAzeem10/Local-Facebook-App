@@ -23,8 +23,13 @@ function Forget() {
       const auth = getAuth();
       await sendPasswordResetEmail(auth, email);
       toast.success("email was send");
+      console.log("email was send");
+      alert("email successfully send")
+
     } catch (error) {
       toast.error("could not send reset email");
+      console.log("email not send")
+      alert("email not send")
     }
   };
 
